@@ -17,6 +17,10 @@ sed -i 's/REDHAT_.*//g' /etc/os-release
 
 sed -i '/^$/d' /etc/os-release
 
+# Set system-release
+
+sed -i 's/Fedora/RaduLinux/g' /etc/system-release
+
 # Generate initramfs
 
 KERNEL_VERSION=$(rpm -q kernel --qf "%{VERSION}-%{RELEASE}.%{ARCH}")
