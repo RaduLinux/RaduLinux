@@ -74,7 +74,8 @@ jobs:
         uses: EyeCantCU/cosign-action/sign@v0.2.2
         if: github.event_name != 'pull_request'
         with:
-          containers: ${{ env.IMAGE_NAME }}
+          containers: radulinux
+          registry: ${{ steps.registry_case.outputs.lowercase }}
           registry-token: ${{ secrets.GITHUB_TOKEN }}
           signing-secret: ${{ secrets.COSIGN_PRIVATE_KEY }}
           tags: ${{ steps.push.outputs.outputs && fromJSON(steps.push.outputs.outputs).digest }}
