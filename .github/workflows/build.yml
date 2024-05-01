@@ -71,10 +71,10 @@ jobs:
         if: github.event_name != 'pull_request'
 
       - name: Sign container image
+        uses: EyeCantCU/cosign-action/sign@v0.2.2
         if: github.event_name != 'pull_request'
-        run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
-        env:
-          TAGS: ${{ steps.push.outputs.outputs && fromJSON(steps.push.outputs.outputs).digest }}
-          COSIGN_EXPERIMENTAL: false
-          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+        with:
+          containers: ${{ env.IMAGE_NAME }}
+          registry-token: ${{ secrets.GITHUB_TOKEN }}
+          signing-secret: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          tags: ${{ steps.push.outputs.outputs && fromJSON(steps.push.outputs.outputs).digest }}
