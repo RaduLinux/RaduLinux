@@ -27,7 +27,7 @@ jobs:
         id: build
         with:
           arch: x86_64
-          image_name: RaduLinux
+          image_name: radulinux
           image_repo: ${{ steps.registry_case.outputs.lowercase }}
           variant: "Silverblue"
           version: 40
