@@ -20,7 +20,7 @@
           "keyPath": "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
         }
       ],
-      "ghcr.io/coderadu": [
+      "ghcr.io/radulinux": [
         {
           "type": "sigstoreSigned",
           "keyPath": "/usr/etc/pki/containers/radu.pub",
