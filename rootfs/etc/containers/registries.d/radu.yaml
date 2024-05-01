@@ -1,0 +1,3 @@
+docker:
+  ghcr.io/coderadu:
+    use-sigstore-attachments: true

@@ -1,0 +1,12 @@
+{
+  "include": [
+    "btop",
+    "gnome-console",
+    "htop",
+    "nano",
+    "vim"
+  ],
+  "exclude": [
+    "gnome-terminal*"
+  ]
+}
